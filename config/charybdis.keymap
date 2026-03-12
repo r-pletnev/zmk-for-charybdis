@@ -63,23 +63,6 @@
             bindings = <&kt LG(TILDE) &kt LG(TILDE)>;
             label = "SWITCH_WIN";
         };
-
-        // Drag toggle:
-        // Нажал G → ЛКМ зажата, двигаешь трекбол → нажал G снова → ЛКМ отпущена
-
-        drag_press: drag_press {
-            compatible = "zmk,behavior-macro";
-            label = "drag_press";
-            #binding-cells = <0>;
-            bindings = <&macro_press>, <&mkp MB1>;
-        };
-
-        drag_release: drag_release {
-            compatible = "zmk,behavior-macro";
-            label = "drag_release";
-            #binding-cells = <0>;
-            bindings = <&macro_release>, <&mkp MB1>;
-        };
     };
 
     behaviors {
@@ -103,14 +86,7 @@
             bindings = <&mo>, <&to>;
         };
 
-        // G: первое нажатие — зажимает ЛКМ, второе — отпускает
 
-        drag_tog: drag_toggle {
-            compatible = "zmk,behavior-tap-dance";
-            #binding-cells = <0>;
-            tapping-term-ms = <300>;
-            bindings = <&drag_press>, <&drag_release>;
-        };
     };
 
     combos {
@@ -194,7 +170,7 @@
             bindings = <
 &trans  &trans  &trans     &trans    &trans     &trans       &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &trans  &trans     &trans    &trans     &trans       &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &scroll_snipe 3 4  &mkp MCLK  &mkp MB2  &mkp MB1   &drag_tog    &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &scroll_snipe 3 4  &mkp MCLK  &mkp MB2  &mkp MB1   &trans    &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &trans  &trans     &trans    &trans     &trans       &trans  &trans  &trans  &trans  &trans  &trans
                            &trans    &trans     &trans       &trans  &trans
                                      &mkp MB2  &mkp MB1     &trans
