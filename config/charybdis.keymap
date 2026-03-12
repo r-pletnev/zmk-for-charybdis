@@ -66,18 +66,19 @@
 
         // Drag toggle:
         // Нажал G → ЛКМ зажата, двигаешь трекбол → нажал G снова → ЛКМ отпущена
+
         drag_press: drag_press {
             compatible = "zmk,behavior-macro";
             label = "drag_press";
             #binding-cells = <0>;
-            bindings = <&macro_press &mkp LCLK>;
+            bindings = <&macro_press>, <&mkp LCLK>;
         };
 
         drag_release: drag_release {
             compatible = "zmk,behavior-macro";
             label = "drag_release";
             #binding-cells = <0>;
-            bindings = <&macro_release &mkp LCLK>;
+            bindings = <&macro_release>, <&mkp LCLK>;
         };
     };
 
@@ -91,7 +92,9 @@
             flavor = "balanced";
             tapping-term-ms = <250>;
         };
+
         // G: первое нажатие — зажимает ЛКМ, второе — отпускает
+
         drag_tog: drag_toggle {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
@@ -176,14 +179,15 @@
         // Активируется автоматически при движении трекбола
         // ЛКМ = F, ПКМ = D, СКМ = S (home row левой руки)
         // G  = drag toggle: нажал → ЛКМ зажата, нажал снова → отпущена
+
         mouse_layer {
             bindings = <
-&trans  &trans  &trans     &trans     &trans     &trans        &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans     &trans     &trans     &trans        &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &mkp MCLK  &mkp RCLK  &mkp LCLK  &drag_tog     &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans     &trans     &trans     &trans        &trans  &trans  &trans  &trans  &trans  &trans
-                           &trans     &mkp LCLK  &trans        &trans  &trans
-                                      &trans     &trans        &trans
+&trans  &trans  &trans     &trans     &trans     &trans       &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans     &trans     &trans     &trans       &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &mkp MCLK  &mkp RCLK  &mkp LCLK  &drag_tog    &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans     &trans     &trans     &trans       &trans  &trans  &trans  &trans  &trans  &trans
+                           &trans     &trans     &trans       &trans  &trans
+                                      &mkp RCLK  &mkp LCLK    &trans
             >;
         };
 
