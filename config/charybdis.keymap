@@ -93,6 +93,16 @@
             tapping-term-ms = <250>;
         };
 
+        // A в mouse_layer: удержание = скролл (слой 3), тап = snipe (слой 4)
+        scroll_snipe: scroll_snipe {
+            compatible = "zmk,behavior-hold-tap";
+            label = "scroll_snipe";
+            #binding-cells = <2>;
+            flavor = "hold-preferred";
+            tapping-term-ms = <200>;
+            bindings = <&mo>, <&to>;
+        };
+
         // G: первое нажатие — зажимает ЛКМ, второе — отпускает
 
         drag_tog: drag_toggle {
@@ -168,7 +178,7 @@
             bindings = <
 &trans  &trans  &trans  &trans  &trans  &trans    &trans     &trans     &trans  &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans    &trans     &trans     &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans    &mkp LCLK  &mkp RCLK  &trans  &trans  &trans  &trans
+&trans  &to 0   &trans  &trans  &trans  &trans    &mkp LCLK  &mkp RCLK  &trans  &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans    &trans     &trans     &trans  &trans  &trans  &trans
                         &trans  &trans  &trans    &mkp LCLK  &mkp RCLK
                                 &trans  &trans    &trans
@@ -184,7 +194,7 @@
             bindings = <
 &trans  &trans  &trans     &trans    &trans     &trans       &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &trans  &trans     &trans    &trans     &trans       &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &mkp MCLK  &mkp MB2  &mkp MB1   &drag_tog    &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &scroll_snipe 3 4  &mkp MCLK  &mkp MB2  &mkp MB1   &drag_tog    &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &trans  &trans     &trans    &trans     &trans       &trans  &trans  &trans  &trans  &trans  &trans
                            &trans    &trans     &trans       &trans  &trans
                                      &mkp MB2  &mkp MB1     &trans
