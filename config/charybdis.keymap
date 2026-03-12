@@ -63,6 +63,13 @@
             bindings = <&kt LG(TILDE) &kt LG(TILDE)>;
             label = "SWITCH_WIN";
         };
+
+        pasw: pasw {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp N4 &kp E &kp R &kp T &kp N1 &kp N9 &kp N8 &kp N6>;
+            label = "PASW";
+        };
     };
 
     behaviors {
@@ -77,6 +84,7 @@
         };
 
         // A в mouse_layer: удержание = скролл (слой 3), тап = snipe (слой 4)
+
         scroll_snipe: scroll_snipe {
             compatible = "zmk,behavior-hold-tap";
             label = "scroll_snipe";
@@ -85,8 +93,6 @@
             tapping-term-ms = <200>;
             bindings = <&mo>, <&to>;
         };
-
-
     };
 
     combos {
@@ -108,23 +114,23 @@
 
         QWERTY {
             bindings = <
-&maccy            &kp N1  &kp N2          &kp N3     &kp N4            &kp N5       &kp N6     &kp N7             &kp N8     &kp N9           &kp N0    &mac_screen
-&kp TAB           &kp Q   &kp W           &kp E      &kp R             &kp T        &kp Y      &kp U              &kp I      &kp O            &kp P     &kp CAPSLOCK
-&kp LEFT_CONTROL  &kp A   &th LEFT_GUI S  &kp D      &th LEFT_SHIFT F  &lt 1 G      &kp H      &th RIGHT_SHIFT J  &kp K      &th RIGHT_GUI L  &kp SEMI  &kp SQT
-&kp LEFT_SHIFT    &kp Z   &kp X           &kp C      &kp V             &lt 2 B      &kp N      &kp M              &kp COMMA  &kp DOT          &kp FSLH  &kp ESC
-                                          &kp LC(B)  &lt 3 SPACE       &mo 6        &kp RGUI   &kp BACKSPACE
-                                                     &mo 5             &kp ENTER    &kp SPACE
+&maccy            &kp N1  &kp N2          &kp N3        &kp N4            &kp N5       &kp N6     &kp N7             &kp N8     &kp N9           &kp N0    &mac_screen
+&kp TAB           &kp Q   &kp W           &kp E         &kp R             &kp T        &kp Y      &kp U              &kp I      &kp O            &kp P     &kp CAPSLOCK
+&kp LEFT_CONTROL  &kp A   &th LEFT_GUI S  &kp D         &th LEFT_SHIFT F  &lt 1 G      &kp H      &th RIGHT_SHIFT J  &kp K      &th RIGHT_GUI L  &kp SEMI  &kp SQT
+&kp LEFT_SHIFT    &kp Z   &kp X           &kp C         &kp V             &lt 2 B      &kp N      &kp M              &kp COMMA  &kp DOT          &kp FSLH  &kp ESC
+                                          &kp LEFT_ALT  &lt 3 SPACE       &mo 6        &kp RGUI   &kp BACKSPACE
+                                                        &mo 1             &kp ENTER    &kp SPACE
             >;
         };
 
         F_layers {
             bindings = <
-&kp F1  &kp F2  &kp F3  &kp F4  &kp F5  &kp F6        &kp F7     &kp F8     &kp F9    &kp F10       &kp F11    &kp F12
-&trans  &none   &none   &none   &none   &trans        &none      &none      &none     &kp UP_ARROW  &kp MINUS  &kp EQUAL
-&trans  &none   &none   &none   &none   &trans        &mkp LCLK  &mkp RCLK  &kp LEFT  &kp DOWN      &kp RIGHT  &trans
-&trans  &trans  &trans  &trans  &trans  &none         &none      &none      &trans    &trans        &none      &trans
-                        &trans  &trans  &To0_macro    &mkp LCLK  &mkp RCLK
-                                &trans  &trans        &trans
+&kp F1  &kp F2  &kp F3  &kp F4   &kp F5   &kp F6        &pasw      &kp F8     &kp F9    &kp F10       &kp F11    &kp F12
+&kp F7  &kp F8  &kp F9  &kp F10  &kp F11  &kp F12       &kp LC(B)  &none      &none     &kp UP_ARROW  &kp MINUS  &kp EQUAL
+&trans  &none   &none   &none    &none    &trans        &mkp LCLK  &mkp RCLK  &kp LEFT  &kp DOWN      &kp RIGHT  &trans
+&trans  &trans  &trans  &trans   &trans   &none         &none      &none      &trans    &trans        &none      &trans
+                        &trans   &trans   &To0_macro    &mkp LCLK  &mkp RCLK
+                                 &trans   &trans        &trans
             >;
         };
 
@@ -168,12 +174,12 @@
 
         mouse_layer {
             bindings = <
-&trans  &trans  &trans     &trans    &trans     &trans       &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans     &trans    &trans     &trans       &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &scroll_snipe 3 4  &mkp MCLK  &mkp MB2  &mkp MB1   &trans    &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans     &trans    &trans     &trans       &trans  &trans  &trans  &trans  &trans  &trans
-                           &trans    &trans     &trans       &trans  &trans
-                                     &mkp MB2  &mkp MB1     &trans
+&trans  &trans             &trans     &trans    &trans    &trans      &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans             &trans     &trans    &trans    &trans      &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &scroll_snipe 3 4  &mkp MCLK  &mkp MB2  &mkp MB1  &mo 3       &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans             &trans     &trans    &trans    &trans      &trans  &trans  &trans  &trans  &trans  &trans
+                                      &trans    &trans    &trans      &trans  &trans
+                                                &mkp MB2  &mkp MB1    &trans
             >;
         };
 
