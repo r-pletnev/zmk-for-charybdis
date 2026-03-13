@@ -114,11 +114,11 @@
 
         QWERTY {
             bindings = <
-&maccy            &kp N1  &kp N2          &kp N3  &kp N4            &kp N5          &kp N6     &kp N7             &kp N8     &kp N9           &kp N0    &mac_screen
-&kp TAB           &kp Q   &kp W           &kp E   &kp R             &kp T           &kp Y      &kp U              &kp I      &kp O            &kp P     &kp CAPSLOCK
-&kp LEFT_CONTROL  &kp A   &th LEFT_GUI S  &kp D   &th LEFT_SHIFT F  &lt 1 G         &kp H      &th RIGHT_SHIFT J  &kp K      &th RIGHT_GUI L  &kp SEMI  &kp SQT
-&kp LEFT_SHIFT    &kp Z   &kp X           &kp C   &kp V             &lt 2 B         &kp N      &kp M              &kp COMMA  &kp DOT          &kp FSLH  &kp ESC
-                                          &mo 1   &lt 3 SPACE       &kp LEFT_ALT    &kp RGUI   &kp BACKSPACE
+&maccy            &kp N1  &kp N2          &kp N3  &kp N4            &kp N5          &kp N6       &kp N7             &th LS(N8) I  &kp N9           &kp N0    &mac_screen
+&kp TAB           &kp Q   &kp W           &kp E   &kp R             &kp T           &th LC(B) Y  &kp U              &kp I         &kp O            &kp P     &kp CAPSLOCK
+&kp LEFT_CONTROL  &kp A   &th LEFT_GUI S  &kp D   &th LEFT_SHIFT F  &lt 1 G         &kp H        &th RIGHT_SHIFT J  &kp K         &th RIGHT_GUI L  &kp SEMI  &kp SQT
+&kp LEFT_SHIFT    &kp Z   &kp X           &kp C   &kp V             &lt 2 B         &kp N        &kp M              &kp COMMA     &kp DOT          &kp FSLH  &kp ESC
+                                          &mo 1   &lt 3 SPACE       &kp LEFT_ALT    &kp RGUI     &kp BACKSPACE
                                                   &mo 6             &kp ENTER       &kp SPACE
             >;
         };
