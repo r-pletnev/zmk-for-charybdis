@@ -70,9 +70,24 @@
             bindings = <&kp N4 &kp E &kp R &kp T &kp N1 &kp N9 &kp N8 &kp N6>;
             label = "PASW";
         };
+
+        dbl_click: dbl_click {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <20>;
+            tap-ms = <20>;
+            bindings = <&mkp MB1 &mkp MB1>;
+        };
     };
 
     behaviors {
+        td_dbl: td_double_click {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <300>;
+            bindings = <&mkp MB1>, <&dbl_click>;
+        };
+
         th: th {
             compatible = "zmk,behavior-hold-tap";
             label = "Tap-Hold-250";
@@ -176,7 +191,7 @@
             bindings = <
 &trans  &trans             &trans     &trans    &trans    &trans      &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &trans             &trans     &trans    &trans    &trans      &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &scroll_snipe 3 4  &mkp MCLK  &mkp MB2  &mkp MB1  &mo 3       &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &scroll_snipe 3 4  &mkp MCLK  &mkp MB2  &td_dbl   &trans       &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &trans             &trans     &trans    &trans    &trans      &trans  &trans  &trans  &trans  &trans  &trans
                                       &trans    &mo 3     &trans      &trans  &trans
                                                 &mkp MB2  &mkp MB1    &trans
