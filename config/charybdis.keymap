@@ -98,7 +98,7 @@
             tapping-term-ms = <250>;
         };
 
-        // A в mouse_layer: удержание = скролл (слой 3), тап = snipe (слой 4)
+        // A в mouse_layer: удержание = скролл (слой 5), тап = snipe (слой 4)
 
         scroll_snipe: scroll_snipe {
             compatible = "zmk,behavior-hold-tap";
@@ -133,7 +133,7 @@
 &kp TAB           &kp Q   &kp W           &kp E   &kp R             &kp T           &kp Y        &kp U              &kp I         &kp O            &kp P     &kp CAPSLOCK
 &kp LEFT_CONTROL  &kp A   &th LEFT_GUI S  &kp D   &th LEFT_SHIFT F  &lt 1 G         &kp H        &th RIGHT_SHIFT J  &kp K         &th RIGHT_GUI L  &kp SEMI  &kp SQT
 &kp LEFT_SHIFT    &kp Z   &kp X           &kp C   &kp V             &lt 2 B         &kp N        &kp M              &kp COMMA     &kp DOT          &kp FSLH  &kp ESC
-                                          &mo 1   &lt 3 SPACE       &kp LEFT_ALT    &kp RGUI     &kp BACKSPACE
+                                          &mo 1   &lt 5 SPACE       &kp LEFT_ALT    &kp RGUI     &kp BACKSPACE
                                                   &mo 6             &kp ENTER       &lt 7 SPACE
             >;
         };
@@ -160,14 +160,19 @@
             >;
         };
 
-        scroll_layer {
+        // Слой 3: auto mouse layer
+        // Активируется автоматически при движении трекбола
+        // ЛКМ = F, ПКМ = D, СКМ = S (home row левой руки)
+        // G  = drag toggle: нажал → ЛКМ зажата, нажал снова → отпущена
+
+        mouse_layer {
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
-                        &trans  &trans  &trans    &trans  &trans
-                                &trans  &trans    &trans
+&trans  &trans             &trans     &trans    &trans    &trans      &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans             &trans     &trans    &trans    &trans      &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &scroll_snipe 5 4  &mkp MCLK  &mkp MB2  &td_dbl   &trans       &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans             &trans     &trans    &trans    &trans      &trans  &trans  &trans  &trans  &trans  &trans
+                                      &trans    &mo 5     &trans      &trans  &trans
+                                                &mkp MB2  &mkp MB1    &trans
             >;
         };
 
@@ -182,19 +187,14 @@
             >;
         };
 
-        // Слой 5: auto mouse layer
-        // Активируется автоматически при движении трекбола
-        // ЛКМ = F, ПКМ = D, СКМ = S (home row левой руки)
-        // G  = drag toggle: нажал → ЛКМ зажата, нажал снова → отпущена
-
-        mouse_layer {
+        scroll_layer {
             bindings = <
-&trans  &trans             &trans     &trans    &trans    &trans      &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans             &trans     &trans    &trans    &trans      &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &scroll_snipe 3 4  &mkp MCLK  &mkp MB2  &td_dbl   &trans       &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans             &trans     &trans    &trans    &trans      &trans  &trans  &trans  &trans  &trans  &trans
-                                      &trans    &mo 3     &trans      &trans  &trans
-                                                &mkp MB2  &mkp MB1    &trans
+&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
+                        &trans  &trans  &trans    &trans  &trans
+                                &trans  &trans    &trans
             >;
         };
 
