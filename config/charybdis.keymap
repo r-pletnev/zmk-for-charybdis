@@ -122,6 +122,26 @@
             bindings = <&kp RIGHT_PARENTHESIS>;
             key-positions = <27 29>;
         };
+
+        d_left {
+            bindings = <&kp LEFT>;
+            key-positions = <31 32>;
+        };
+
+        d_up {
+            bindings = <&kp UP>;
+            key-positions = <20 21>;
+        };
+
+        d_down {
+            bindings = <&kp DOWN>;
+            key-positions = <33 32>;
+        };
+
+        d_right {
+            bindings = <&kp RIGHT>;
+            key-positions = <33 34>;
+        };
     };
 
     keymap {
@@ -133,7 +153,7 @@
 &kp TAB           &kp Q   &kp W           &kp E   &kp R             &kp T           &kp Y        &kp U              &kp I         &kp O            &kp P     &kp CAPSLOCK
 &kp LEFT_CONTROL  &kp A   &th LEFT_GUI S  &kp D   &th LEFT_SHIFT F  &lt 1 G         &kp H        &th RIGHT_SHIFT J  &kp K         &th RIGHT_GUI L  &kp SEMI  &kp SQT
 &kp LEFT_SHIFT    &kp Z   &kp X           &kp C   &kp V             &lt 2 B         &kp N        &kp M              &kp COMMA     &kp DOT          &kp FSLH  &kp ESC
-                                          &mo 1   &lt 5 SPACE       &kp LEFT_ALT    &kp RGUI     &kp BACKSPACE
+                                          &mo 1   &tog 5            &kp LEFT_ALT    &kp RGUI     &kp BACKSPACE
                                                   &mo 6             &kp ENTER       &lt 7 SPACE
             >;
         };
@@ -169,7 +189,7 @@
             bindings = <
 &trans  &trans             &trans     &trans    &trans    &trans      &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &trans             &trans     &trans    &trans    &trans      &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &scroll_snipe 5 4  &mkp MCLK  &mkp MB2  &td_dbl   &trans       &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &scroll_snipe 5 4  &mkp MCLK  &mkp MB2  &td_dbl   &trans      &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &trans             &trans     &trans    &trans    &trans      &trans  &trans  &trans  &trans  &trans  &trans
                                       &trans    &mo 5     &trans      &trans  &trans
                                                 &mkp MB2  &mkp MB1    &trans
